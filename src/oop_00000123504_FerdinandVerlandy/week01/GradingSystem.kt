@@ -1,17 +1,21 @@
 package oop_00000123504_FerdinandVerlandy.week01
 
-fun main() {
-    val score = 85
-    val name: String? = null
+fun main(args: Array<String>) {
 
-    val status = calculateStatus(score)
-    val safeName = name ?: "Nama tidak diketahui"
+    var radius: Double = 7.0
+    var pi: Double = 3.14
 
-    println("$safeName $status")
+    var area: Double = pi * radius * radius
+
+    println("Radius: " + radius + ", Area: " + area)
+
+    checkSize(area)
 }
 
-fun calculateStatus(score: Int) =
-    when {
-        score >= 80 -> "Lulus"
-        else -> "Tidak Lulus"
+fun checkSize(area: Double) {
+    if (area > 100) {
+        println("This is a Big Circle")
+    } else {
+        println("This is a Small Circle")
     }
+}
