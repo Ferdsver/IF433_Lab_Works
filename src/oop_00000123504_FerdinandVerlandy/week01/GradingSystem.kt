@@ -2,10 +2,12 @@ package oop_00000123504_FerdinandVerlandy.week01
 
 fun main() {
     val score = 85
-    val name = "Budi"
+    val name: String? = null
 
     val status = calculateStatus(score)
-    println("$name $status")
+    val safeName = name ?: "Nama tidak diketahui"
+
+    println("$safeName $status")
 }
 
 fun calculateStatus(score: Int) =
