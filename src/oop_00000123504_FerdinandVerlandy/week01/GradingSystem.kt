@@ -4,10 +4,12 @@ fun main() {
     val score = 85
     val name = "Budi"
 
-    val status = when {
+    val status = calculateStatus(score)
+    println("$name $status")
+}
+
+fun calculateStatus(score: Int) =
+    when {
         score >= 80 -> "Lulus"
         else -> "Tidak Lulus"
     }
-
-    println("$name $status")
-}
