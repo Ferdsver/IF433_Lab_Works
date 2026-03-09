@@ -1,5 +1,3 @@
-package oop_00000123504_FerdinandVerlandy.week03
-
 class Employee(val name: String, val nim: String) {
 
     var salary: Int = 0
@@ -10,4 +8,12 @@ class Employee(val name: String, val nim: String) {
                 field = value
             }
         }
+
+    private var performanceRating: Int = 3
+
+    fun updateRating(newRating: Int) {
+        if (newRating in 1..5) {
+            performanceRating = newRating
+        }
+    }
 }
