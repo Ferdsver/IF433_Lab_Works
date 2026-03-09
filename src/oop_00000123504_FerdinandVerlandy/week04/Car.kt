@@ -1,4 +1,4 @@
-package oop_<nim>_<nama>.week04
+package oop_00000123504_FerdinandVerlandy.week04
 
 open class Car(brand: String, val numberOfDoors: Int) : Vehicle(brand) {
 

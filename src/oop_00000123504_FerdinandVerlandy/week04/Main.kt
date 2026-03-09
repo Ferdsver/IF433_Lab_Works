@@ -1,4 +1,4 @@
-package oop_<nim>_<nama>.week04
+package oop_00000123504_FerdinandVerlandy.week04
 
 fun main() {
 
@@ -8,4 +8,11 @@ fun main() {
     car.accelerate()
     car.openTrunk()
 
+    println()
+
+    val tesla = ElectricCar("Tesla", 4, 90)
+
+    tesla.accelerate()
+    tesla.honk()
+    tesla.openTrunk()
 }
