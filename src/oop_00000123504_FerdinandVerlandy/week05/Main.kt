@@ -27,7 +27,7 @@ fun main() {
 
     println("")
 
-    // Task 2 - Payment Polymorphism
+    // Task 2 - Payment System
     val ewallet = EWallet("Ferdinand", 50000.0)
     val creditCard = CreditCard("Ferdinand", 100000.0)
 
@@ -37,6 +37,15 @@ fun main() {
     )
 
     for (p in payments) {
+
         p.processPayment(75000.0)
+
+        // Smart Casting
+        if (p is EWallet) {
+            p.topUp(50000.0)
+            p.processPayment(75000.0)
+        }
+
+        println("")
     }
 }
