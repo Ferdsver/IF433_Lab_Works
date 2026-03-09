@@ -10,4 +10,18 @@ fun main() {
     emp.updateRating(4)
 
     println("Bonus: ${emp.bonus}")
+
+
+
+    println("\n=== WEAPON TEST ===")
+
+    val sword = Weapon("Dragon Slayer", 100)
+
+    sword.damage = -50
+    println("Damage sekarang: ${sword.damage}")
+
+    sword.damage = 9999
+    println("Damage sekarang: ${sword.damage}")
+
+    println("Tier senjata: ${sword.tier}")
 }
