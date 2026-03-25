@@ -6,9 +6,12 @@ fun main() {
 
     DatabaseManager.connect()
 
-    val d1 = DataUser("Ferdinand", 20)
-    val d2 = DataUser("Ferdinand", 20)
+    val original = DataUser("Ferdinand", 20)
+    val updated = original.copy(age = 25)
 
-    println(d1)
-    println(d1 == d2)
+    println(original)
+    println(updated)
+
+    val (name, age) = original
+    println("Name: $name, Age: $age")
 }
