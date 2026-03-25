@@ -6,9 +6,9 @@ fun main() {
 
     DatabaseManager.connect()
 
-    val user1 = User("Ferdinand", 20)
-    val user2 = User("Ferdinand", 20)
+    val d1 = DataUser("Ferdinand", 20)
+    val d2 = DataUser("Ferdinand", 20)
 
-    println(user1)
-    println(user1 == user2)
+    println(d1)
+    println(d1 == d2)
 }
