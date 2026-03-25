@@ -5,4 +5,10 @@ fun main() {
     println(client.baseUrl)
 
     DatabaseManager.connect()
+
+    val user1 = User("Ferdinand", 20)
+    val user2 = User("Ferdinand", 20)
+
+    println(user1)
+    println(user1 == user2)
 }
