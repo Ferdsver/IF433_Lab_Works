@@ -24,4 +24,6 @@ fun main() {
     }
 
     println(message)
+    GameManager.startGame()
+    GameManager.startGame()
 }
