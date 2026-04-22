@@ -6,17 +6,12 @@ fun main() {
 
     println("Original Data: $numbers")
 
-    println("\n=== HOF: FILTER ===")
+    val result = numbers
+        .filter { it % 2 == 0 }
+        .map { it * 10 }
+        .sortedByDescending { it }
 
-    val evens = numbers.filter { it % 2 == 0 }
-    println("Evens only: $evens")
-
-
-    println("\n=== HOF: MAP ===")
-
-    val multiplied = evens.map { it * 10 }
-    val asStrings = multiplied.map { "Rp ${it}k" }
-
-    println("Multiplied: $multiplied")
-    println("Formatted: $asStrings")
+    result.forEach {
+        println("Final Value: $it")
+    }
 }
