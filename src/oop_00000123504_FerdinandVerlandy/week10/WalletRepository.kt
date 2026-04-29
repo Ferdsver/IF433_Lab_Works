@@ -11,4 +11,8 @@ class WalletRepository<T> {
     fun getAll(): List<T> {
         return items
     }
+
+    fun findBy(predicate: (T) -> Boolean): List<T> {
+        return items.filter(predicate)
+    }
 }
