@@ -12,6 +12,8 @@ fun main() {
     val user = User().apply {
         name = "Alex"
         age = 25
+    }.also {
+        println("User berhasil dibuat: $it")
     }
 
     println(user)
