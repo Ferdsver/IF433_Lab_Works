@@ -1,26 +1,25 @@
 package oop_00000123504_FerdinandVerlandy.week14
 
-open class Rectangle {
+interface MultifunctionDevice {
 
-    open var width: Int = 0
-    open var height: Int = 0
+    fun print(doc: String)
 
-    fun area(): Int {
-        return width * height
-    }
+    fun scan(doc: String): String
+
+    fun fax(doc: String)
 }
 
-class Square : Rectangle() {
+class SimplePrinter : MultifunctionDevice {
 
-    override var width: Int = 0
-        set(value) {
-            field = value
-            super.height = value
-        }
+    override fun print(doc: String) {
+        println("Printing: $doc")
+    }
 
-    override var height: Int = 0
-        set(value) {
-            field = value
-            super.width = value
-        }
+    override fun scan(doc: String): String {
+        throw UnsupportedOperationException("No scanner")
+    }
+
+    override fun fax(doc: String) {
+        throw UnsupportedOperationException("No fax")
+    }
 }
