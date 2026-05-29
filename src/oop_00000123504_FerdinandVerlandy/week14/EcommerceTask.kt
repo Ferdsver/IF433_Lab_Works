@@ -4,9 +4,6 @@ import java.io.File
 
 class BadOrderProcessor {
 
-    // VIOLATION: Hardcoded File I/O (DIP),
-    // Melakukan kalkulasi + I/O + Notifikasi sekaligus
-
     private val file = File("orders.csv")
 
     fun processOrder(
@@ -14,9 +11,6 @@ class BadOrderProcessor {
         basePrice: Double,
         customerType: String
     ) {
-
-        // VIOLATION:
-        // Kaku jika ada tipe customer/diskon baru di masa depan (OCP)
 
         val finalPrice = when (customerType) {
             "REGULAR" -> basePrice
@@ -26,14 +20,44 @@ class BadOrderProcessor {
 
         println("Memproses pesanan $itemName seharga $finalPrice")
 
-        // VIOLATION SRP/DIP:
-        // Menulis file langsung di class bisnis
-
         file.appendText("$itemName,$finalPrice,$customerType\n")
-
-        // VIOLATION SRP/DIP:
-        // Notifikasi terikat kuat dengan sistem order
 
         println("Email terkirim: Pesanan $itemName Anda telah dikonfirmasi!")
     }
 }
+
+
+interface OrderRepository {
+
+    fun saveOrder(data: String)
+}
+
+class CsvOrderRepository : OrderRepository {
+
+    override fun saveOrder(data: String) {
+
+        File("safe_orders.csv")
+            .printWriter()
+            .use { writer ->
+                writer.println(data)
+            }
+    }
+}
+
+
+interface NotificationService {
+
+    fun sendNotification(message: String)
+}
+
+class EmailNotifier : NotificationService {
+
+    override fun sendNotification(message: String) {
+        println("EMAIL => $message")
+    }
+}
+
+class SafeOrderProcessor(
+    private val repo: OrderRepository,
+    private val notifier: NotificationService
+)
